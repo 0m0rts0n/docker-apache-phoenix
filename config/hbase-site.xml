@@ -46,6 +46,10 @@
     <value>true</value>
   </property>
   <property>
+    <name>hbase.master.wait.on.regionservers.mintostart</name>
+    <value>1</value>
+  </property>
+  <property>
     <name>phoenix.functions.allowUserDefinedFunctions</name>
     <value>true</value>
   </property>
