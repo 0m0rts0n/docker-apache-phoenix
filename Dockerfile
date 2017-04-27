@@ -6,14 +6,7 @@ MAINTAINER Cheyenne Forbes de Avapno
 
 USER root
 
-# Java Version
-ENV JAVA_VERSION_MAJOR=8
-ENV JAVA_VERSION_MINOR=74
-ENV JAVA_VERSION_BUILD=02
-ENV JAVA_PACKAGE=jre
-ENV JAVA_SHA256_SUM=9c8663a5a67429d423ed1da554a7f93d1c7e50f6bb4bc5e0bbde1f512cf36d95
-
-RUN yum install -y curl which tar sudo rsync openssh-server openssh-clients initscripts python-argparse nano mlocate && yum clean all
+RUN yum clean all; rpm --rebuilddb; yum install -y curl which tar sudo rsync openssh-server openssh-clients initscripts python-argparse nano mlocate
 
 RUN yum update -y libselinux
 
