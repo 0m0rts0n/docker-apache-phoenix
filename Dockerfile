@@ -36,8 +36,8 @@ RUN mkdir -p /tmp/native
 RUN curl -L https://github.com/sequenceiq/docker-hadoop-build/releases/download/v$HADOOP_VERSION/hadoop-native-64-$HADOOP_VERSION.tgz | tar -xz -C /tmp/native
 
 RUN curl $APACHE_MIRROR/hadoop/common/hadoop-$HADOOP_VERSION/hadoop-$HADOOP_VERSION.tar.gz | tar -xz -C /opt/
-RUN cd /opt && ln -s ./hadoop-$HADOOP_VERSION hadoop
-ENV HADOOP_PREFIX=/opt/hadoop
+RUN cd /usr/local && ln -s ./hadoop-$HADOOP_VERSION hadoop
+ENV HADOOP_PREFIX=/usr/local
 ENV HADOOP_HOME=${HADOOP_PREFIX}
 ENV	HADOOP_COMMON_HOME=${HADOOP_PREFIX}
 ENV	HADOOP_HDFS_HOME=${HADOOP_PREFIX}
