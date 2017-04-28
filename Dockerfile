@@ -8,7 +8,7 @@ USER root
 
 RUN yum clean all; rpm --rebuilddb; yum install -y curl which tar sudo rsync openssh-server openssh-clients initscripts python-argparse nano mlocate
 
-RUN yum clean all; yum update -y libselinux
+RUN yum clean all; rpm --rebuilddb; yum update -y libselinux; yum clean all; rpm --rebuilddb;
 
 # passwordless ssh
 RUN ssh-keygen -q -N "" -t dsa -f /etc/ssh/ssh_host_dsa_key
