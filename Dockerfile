@@ -37,7 +37,7 @@ RUN curl -L https://github.com/sequenceiq/docker-hadoop-build/releases/download/
 
 RUN curl $APACHE_MIRROR/hadoop/common/hadoop-$HADOOP_VERSION/hadoop-$HADOOP_VERSION.tar.gz | tar -xz -C /usr/local
 RUN cd /usr/local && ln -s ./hadoop-$HADOOP_VERSION hadoop
-ENV HADOOP_PREFIX=/usr/local
+ENV HADOOP_PREFIX=/usr/local/hadoop
 ENV HADOOP_HOME=${HADOOP_PREFIX}
 ENV	HADOOP_COMMON_HOME=${HADOOP_PREFIX}
 ENV	HADOOP_HDFS_HOME=${HADOOP_PREFIX}
