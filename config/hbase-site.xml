@@ -22,39 +22,11 @@
 -->
 <configuration>
   <property>
-    <name>zookeeper.session.timeout</name>
-    <value>60000</value>
-  </property>
-  <property>
-   <name>hbase.zookeeper.quorum</name>
-   <value>HOST_NAME</value>
-  </property>
-  <property>
-    <name>hbase.master.info.bindAddress</name>
-    <value>HOST_NAME</value>
-  </property>
-  <property>
-    <name>hbase.regionserver.info.bindAddress</name>
-    <value>HOST_NAME</value>
-  </property>  
-  <property>
     <name>hbase.rootdir</name>
-    <value>hdfs://HOST_NAME:9000/hbase</value>
+    <value>hdfs://localhost:9000/hbase</value>
   </property>
   <property>
     <name>hbase.cluster.distributed</name>
     <value>true</value>
-  </property>
-  <property>
-    <name>hbase.master.wait.on.regionservers.mintostart</name>
-    <value>1</value>
-  </property>
-  <property>
-    <name>phoenix.functions.allowUserDefinedFunctions</name>
-    <value>true</value>
-  </property>
-  <property>
-    <name>lucene.path</name>
-    <value>${hbase.rootdir}/lucene</value>
   </property>
 </configuration>
