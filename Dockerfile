@@ -83,7 +83,7 @@ RUN echo "UsePAM no" >> /etc/ssh/sshd_config
 RUN echo "Port 2122" >> /etc/ssh/sshd_config
 
 # zookeeper
-ENV ZOOKEEPER_VERSION 3.4.6
+ENV ZOOKEEPER_VERSION 3.4.8
 RUN curl $APACHE_MIRROR/zookeeper/zookeeper-$ZOOKEEPER_VERSION/zookeeper-$ZOOKEEPER_VERSION.tar.gz | tar -xz -C /usr/local/
 RUN cd /usr/local && ln -s ./zookeeper-$ZOOKEEPER_VERSION zookeeper
 ENV ZOO_HOME /usr/local/zookeeper
@@ -133,4 +133,7 @@ EXPOSE 8030 8031 8032 8033 8040 8042 8088
 #Other ports
 EXPOSE 49707 2122
 
+#Zookeeper
+EXPOSE 2181
+#Phoenix QS
 EXPOSE 8765
