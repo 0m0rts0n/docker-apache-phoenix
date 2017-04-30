@@ -9,7 +9,7 @@
 if [[ $1 == "-stop" ]]; then
 	$HADOOP_PREFIX/sbin/stop-dfs.sh
 	$HADOOP_PREFIX/sbin/stop-yarn.sh
-	$ZOO_HOME/bin/zkServer.sh stop
+        $HADOOP_PREFIX/sbin/mr-jobhistory-daemon.sh stop historyserver
 	$HBASE_HOME/bin/stop-hbase.sh
 	$PHOENIX_HOME/bin/queryserver.py stop
 else
@@ -26,7 +26,7 @@ else
 
 	$HADOOP_PREFIX/sbin/start-dfs.sh
 	$HADOOP_PREFIX/sbin/start-yarn.sh
-	$ZOO_HOME/bin/zkServer.sh start
+        $HADOOP_PREFIX/sbin/mr-jobhistory-daemon.sh start historyserver
 	$HBASE_HOME/bin/start-hbase.sh
 
 	if [[ $1 == "-d" ]]; then
