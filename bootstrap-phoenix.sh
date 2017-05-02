@@ -21,7 +21,8 @@ else
 	cd $HADOOP_PREFIX/share/hadoop/common ; for cp in ${ACP//,/ }; do  echo == $cp; curl -LO $cp ; done; cd -
 
 	sed s/HOSTNAME/$HOSTNAME/ /usr/local/hadoop/etc/hadoop/core-site.xml.template > /usr/local/hadoop/etc/hadoop/core-site.xml
-
+        sed s/HOSTNAME/$HOSTNAME/ /usr/local/hbase/conf/hbase-site.xml.template > /usr/local/hbase/conf/hbase-site.xml
+	
 	service sshd start
 
 	$HADOOP_PREFIX/sbin/start-dfs.sh
