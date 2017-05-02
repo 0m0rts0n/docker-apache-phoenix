@@ -114,7 +114,8 @@ RUN cp $PHOENIX_HOME/phoenix-$PHOENIX_VERSION-HBase-$HBASE_MAJOR-server.jar $HBA
 # HBase and Phoenix configuration files
 RUN rm $HBASE_HOME/conf/hbase-site.xml
 RUN rm $HBASE_HOME/conf/hbase-env.sh
-COPY config/hbase-site.xml $HBASE_HOME/conf/hbase-site.xml
+COPY config/hbase-site.xml.template $HBASE_HOME/conf/hbase-site.xml.template
+RUN sed s/HOSTNAME/$HOSTNAME/ /usr/local/hbase/conf/hbase-site.xml.template > /usr/local/hbase/conf/hbase-site.xml
 COPY config/hbase-env.sh $HBASE_HOME/conf/hbase-env.sh
 
 # bootstrap-phoenix
