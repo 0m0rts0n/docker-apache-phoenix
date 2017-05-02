@@ -13,6 +13,7 @@ Apache Phoenix - 4.10.0
 
 ###Launch
 The queryserver can be accessed via the host ip and the port 8765.
+
 ####Foreground
 `docker run -it --name phoenix -p 8765:8765 avapno/apache-phoenix`
 
