@@ -100,7 +100,7 @@ RUN cd /usr/local && ln -s ./hbase-$HBASE_VERSION hbase
 ENV HBASE_HOME /usr/local/hbase
 ENV PATH $PATH:$HBASE_HOME/bin
 RUN rm $HBASE_HOME/conf/hbase-site.xml
-ADD config/hbase-site.xml $HBASE_HOME/conf/hbase-site.xml
+ADD config/hbase-site.xml.template $HBASE_HOME/conf/hbase-site.xml
 
 # Phoenix
 ARG PHOENIX_VERSION=4.10.0
