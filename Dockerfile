@@ -6,6 +6,8 @@ MAINTAINER Cheyenne Forbes de Avapno
 
 USER root
 
+RUN cp /etc/skel/.bash* ~
+
 RUN yum clean all; rpm --rebuilddb; yum install -y curl which tar sudo rsync openssh-server openssh-clients initscripts python-argparse nano mlocate
 
 RUN yum clean all; rpm --rebuilddb; yum update -y libselinux; yum clean all; rpm --rebuilddb;
@@ -27,6 +29,15 @@ ENV PATH $PATH:$JAVA_HOME/bin
 RUN rm /usr/bin/java && ln -s $JAVA_HOME/bin/java /usr/bin/java
 
 ARG APACHE_MIRROR=https://www.apache.org/dist
+
+# maven
+RUN curl -LO 'http://mirror.olnevhost.net/pub/apache/maven/maven-3/3.0.5/binaries/apache-maven-3.0.5-bin.tar.gz'
+RUN tar xvf apache-maven-3.0.5-bin.tar.gz
+RUN mv apache-maven-3.0.5  /usr/local/apache-maven
+RUN echo "export M2_HOME=/usr/local/apache-maven" >> ~/.bashrc
+RUN echo "export M2=$M2_HOME/bin" >> ~/.bashrc
+RUN echo "export PATH=$M2:$PATH" >> ~/.bashrc
+RUN source ~/.bashrc
 
 # Hadoop
 ARG HADOOP_VERSION=2.7.3
