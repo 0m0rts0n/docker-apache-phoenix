@@ -44,6 +44,6 @@ else
 
 	if [[ $1 == "-qs" ]]; then
 	  echo "Starting queryserver"
-	  $PHOENIX_HOME/bin/queryserver.py -qs
+	  $PHOENIX_HOME/bin/queryserver.py start
 	fi
 fi
