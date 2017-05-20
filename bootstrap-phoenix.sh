@@ -12,6 +12,7 @@ if [[ $1 == "-stop" ]]; then
 	$HADOOP_PREFIX/sbin/stop-yarn.sh
         $HADOOP_PREFIX/sbin/mr-jobhistory-daemon.sh stop historyserver
 	$HBASE_HOME/bin/stop-hbase.sh
+	$PHOENIX_HOME/bin/queryserver.py stop
 else
 	rm /tmp/*.pid
 
