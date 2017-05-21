@@ -13,6 +13,9 @@ if [[ $1 == "-stop" ]]; then
         $HADOOP_PREFIX/sbin/mr-jobhistory-daemon.sh stop historyserver
 	$HBASE_HOME/bin/stop-hbase.sh
 	$PHOENIX_HOME/bin/queryserver.py stop
+elif [[ $1 == "-restart" ]]; then
+        /etc/bootstrap-phoenix.sh -stop
+        /etc/bootstrap-phoenix.sh -qs
 else
 	rm /tmp/*.pid
 
